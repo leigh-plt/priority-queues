@@ -1,5 +1,5 @@
 # Priority-queues
-priority queues
+C++ code for priority queues
 
 # Templates:
  - max_binary_heap\<T>
