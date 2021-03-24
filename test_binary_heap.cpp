@@ -51,14 +51,14 @@ int main() { // int argc, char const *argv[]
   else std::cout << "Not replaced!"  << std::endl;
   if (k.remove(1))
     std::cout << "Delete! 1 " << std::endl;
-  auto q = k.end();
+  auto q = k.cend();
   std::cout << "Extract elements: ";
   for (; !k.empty();)
     std::cout << k.get_pop_front() << " ";
   std::cout << std::endl;
 
   std::cout << "Heap elements: ";
-  for (auto p = k.begin();p!=q;++p)
+  for (auto p = k.cbegin();p!=q;++p)
     std::cout << *p << " ";
   std::cout << std::endl;
   std::cout << "Size of heap: " << k.size() << std::endl;

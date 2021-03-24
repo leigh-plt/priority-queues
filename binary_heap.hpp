@@ -90,8 +90,8 @@ public:
       throw std::runtime_error("Error: memory could not be allocated");
   }
   void expand() { reserve( (size_t) (qsize * expand_coef)); }
-  T* begin(){ return data + 1; } // Can be unsafe for inner state
-  T* end(){ return data + qsize + 1; } // Can be unsafe for inner state
+  const T* cbegin(){ return data + 1; }
+  const T* cend(){ return data + qsize + 1; }
   bool empty() { return qsize == 0; }
   size_t size() { return qsize; }
   size_t capacity() { return _capacity; }
@@ -120,6 +120,8 @@ private:
       if (*p == element) break;
     return p;
   }
+  T* begin(){ return data + 1; }
+  T* end(){ return data + qsize + 1; }
   Compare cmp = Compare();
   const int expand_coef = 2;
   size_t qsize= 0;
