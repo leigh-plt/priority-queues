@@ -1,6 +1,11 @@
 # Priority-queues
 priority queues
 
+# Compile
+with clang++ or g++
+```
+clang++ test_binary_heap.cpp -Wpedantic -o ./test -O2 -std=gnu++2a
+```
 # Test cpp outputs:
 ```
 Test array: 1 3 5 7 2 -4 8 17 1 21 9 0 12 7 11
