@@ -1,6 +1,11 @@
 # Priority-queues
 priority queues
 
+#Templates:
+ - max_binary_heap<T>
+ - min_binary_heap<T>
+ - binary_heap<T, Compare>
+  
 # Compile
 with clang++ or g++
 ```
