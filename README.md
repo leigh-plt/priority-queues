@@ -1,7 +1,7 @@
 # Priority-queues
 priority queues
 
-#Templates:
+# Templates:
  - max_binary_heap\<T>
  - min_binary_heap\<T>
  - binary_heap<T, Compare>
