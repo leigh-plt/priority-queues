@@ -23,11 +23,11 @@ public:
   explicit binary_heap(size_t num_elements=10) // constructor
   : _capacity(num_elements), data((T*) calloc(_capacity+1, sizeof(T))) {}
   ~binary_heap() { free(data); }  // destructor
-  T get_front() {
+  T get_top() {
     if (qsize == 0) throw std::out_of_range("empty queue");
     return data[1];
   }
-  T front() {
+  T top() {
     // Unsafe: return a copy of first (min/max) element
     // w/o checking empty queue or not
     return data[1];
@@ -38,21 +38,21 @@ public:
     data[qsize] = element;
     heapify_up(qsize);
   }
-  void pop_front() noexcept {
-    // Remove (move to back) the root element and then correcting heap
+  void pop() noexcept {
+    // Remove (move to back) the top element and then correcting heap
     if (qsize == 0) return;
     std::swap(data[1], data[qsize]);
     heapify_down(1); qsize--;
   }
-  T push_pop_front(T element) noexcept {
+  T push_pop_top(T element) noexcept {
     if (qsize == 0) return element;
     std::swap(data[1], element);
     heapify_down(1);
     return element;
   }
-  T get_pop_front() {
-    auto tmp = get_front();
-    pop_front();
+  T get_top_pop() {
+    auto tmp = get_top();
+    pop();
     return tmp;
   }
   const T* search(T element){
@@ -123,7 +123,7 @@ private:
   T* begin(){ return data + 1; }
   T* end(){ return data + qsize + 1; }
   Compare cmp = Compare();
-  const int expand_coef = 2;
+  const size_t expand_coef = 2;
   size_t qsize= 0;
   size_t _capacity;
   T* data;

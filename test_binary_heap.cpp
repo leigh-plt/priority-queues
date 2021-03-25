@@ -43,18 +43,18 @@ int main() { // int argc, char const *argv[]
   std::cout << "Size of heap: " << k.size() << std::endl;
   for (auto el: v) k.push(el);
   std::cout << "Size of heap: " << k.size() << std::endl;
-  std::cout << "Min of heap: " << k.front() << std::endl;
+  std::cout << "Min of heap: " << k.top() << std::endl;
   if (k.replace(-4, 22))
-    std::cout << "Replaced! -4 and 22, min: " << k.front() << std::endl;
+    std::cout << "Replaced! -4 with 22, min: " << k.top() << std::endl;
   if (k.replace(27, 22))
-    { std::cout << "Replaced! 27 and 22, min: " << k.front() << std::endl; }
+    { std::cout << "Replaced! 27 with 22, min: " << k.top() << std::endl; }
   else std::cout << "Not replaced!"  << std::endl;
   if (k.remove(1))
     std::cout << "Delete! 1 " << std::endl;
   auto q = k.cend();
   std::cout << "Extract elements: ";
   for (; !k.empty();)
-    std::cout << k.get_pop_front() << " ";
+    std::cout << k.get_top_pop() << " ";
   std::cout << std::endl;
 
   std::cout << "Heap elements: ";
@@ -89,7 +89,7 @@ int main() { // int argc, char const *argv[]
   };
   std::cout << std::endl << "People by height (max->min): " << std::endl;
   for (; !heap_people.empty();){
-    auto p = heap_people.get_pop_front();
+    auto p = heap_people.get_top_pop();
     std::cout << p.ref->Name << " " << p.ref->Surname << " " << p.ref->height << std::endl;
   };
 
