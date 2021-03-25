@@ -89,7 +89,6 @@ public:
     if (data == nullptr)
       throw std::runtime_error("Error: memory could not be allocated");
   }
-  void expand() { reserve( (size_t) (qsize * expand_coef)); }
   const T* cbegin(){ return data + 1; }
   const T* cend(){ return data + qsize + 1; }
   bool empty() { return qsize == 0; }
@@ -120,6 +119,7 @@ private:
       if (*p == element) break;
     return p;
   }
+  void expand() { reserve( (size_t) (qsize * expand_coef)); }
   T* begin(){ return data + 1; }
   T* end(){ return data + qsize + 1; }
   Compare cmp = Compare();
